@@ -2370,18 +2370,9 @@ show ip bgp
 !!!Clean-up Again before proceeding:
 
 !@ISP1
-config t
-no access-list 41
-no access-list 42
-no access-list 43
-no route-map LP1 permit 10
-no route-map LP1 permit 20
-no route-map LP1 Deny 30
-no route-map LP1 Permit 40
-		router bgp 45
-			no  neighbor 45.4.5.5 route-map LP1 out
-			do clear ip bgp *
-end
+
+
+
 
 
 !@ISP4 -> sh ip bgp
@@ -2427,7 +2418,7 @@ route-map LP1 permit 30
  match ip address 43
   set local-pref 433
 route-map LP1 Deny 45
- match ip address 43
+ match ip address 45
 route-map LP1 Permit 50
 !
 route-map LP1 Permit 40
